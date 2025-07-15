@@ -60,7 +60,7 @@ export const approveLeaveRequest = async (req, res) => {
     if (!leaveRequest) {
       return res.status(404).json({ message: "Leave request not found!" });
     }
-    leaveRequest.status = 'Approved';
+    leaveRequest.status = 'approved';
     await leaveRequest.save();
     return res.status(200).json({ message: "Leave request approved successfully!", leaveRequest });
   } catch (error) {
