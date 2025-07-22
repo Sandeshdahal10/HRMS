@@ -15,7 +15,7 @@ dotenv.config();
 app.use(express.json())
 const PORT = process.env.PORT || 3000
 connectDB().then(() => {
-  console.log('Database connected successfully')
+  // console.log('Database connected successfully')
 }).catch(err => {
   console.error('Database connection failed:', err)
 })
@@ -27,6 +27,10 @@ app.use('/api', userDepartmentRouter)
 app.use('/api', userLeaveRequestRouter)
 app.use('/api', userAttendanceRouter)
 app.use('/api',authRouter)
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the HRMS API') 
+})
 
 
 
